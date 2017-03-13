@@ -12,123 +12,98 @@ body, .map {
 
 .dot {
 	position:absolute; 
-	width:21px;
-	height:21px;
+	width:19px;
+	height:19px;
 	background:blue;
 	cursor: pointer;
 }
 
 .warande {
-	top: 60px;
-	left: 744px;
+    top: 61px;
+    left: 744px;
 }
 
 .weppes {
-	top: 71px;
-	left: 815px;
+    top: 71px;
+    left: 816px;
 }
 
 .avelgem {
 	top: 50px;
-	left: 922px;
+    left: 923px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.avelin {
+    top: 110px;
+    left: 848px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.attaques {
+    top: 83px;
+    left: 708px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.mandarins {
+    top: 91px;
+    left: 660px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.fruges {
+    top: 141px;
+    left: 671px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.gavrelle {
+    top: 165px;
+    left: 820px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.mastaing {
+    top: 161px;
+    left: 881px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.achene {
+    top: 145px;
+    left: 996px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.chevalet {
+    top: 189px;
+    left: 770px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.argoeuves {
+    top: 215px;
+    left: 715px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.capelle {
+    top: 221px;
+    left: 936px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.mazures {
+    top: 214px;
+    left: 1011px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.lonny {
+    top: 246px;
+    left: 976px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.latena {
+	top: 277px;
+    left: 803px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
+.seuil {
+	top: 321px;
+    left: 965px;
 }
 
-.warande {
-	top: 60px;
-	left: 744px;
-}
-
-.warande {
-	top: 60px;
-	left: 744px;
-}
-
-.warande {
-	top: 60px;
-	left: 744px;
-}
-
-.warande {
-	top: 60px;
-	left: 744px;
-}
-
-.warande {
-	top: 60px;
-	left: 744px;
-}
-
-.warande {
-	top: 60px;
-	left: 744px;
+.vesle {
+    top: 376px;
+    left: 959px;
 }
