@@ -2,7 +2,31 @@
 <head>
 	<title>Manfred quizz</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="dots.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDHlqJdk6GGNG1Cd0aL8tSAjcFxp4YlsCM",
+	    authDomain: "manfred-4c93e.firebaseapp.com",
+	    databaseURL: "https://manfred-4c93e.firebaseio.com",
+	    storageBucket: "manfred-4c93e.appspot.com",
+	    messagingSenderId: "386216372875"
+	  };
+	  firebase.initializeApp(config);
+
+	  var ref = firebase.database().ref();
+	  var data;
+
+	ref.on("value", function(snapshot) {
+	   // console.log(snapshot.val());
+	   data = snapshot.val();
+	}, function (error) {
+	   console.log("Error: " + error.code);
+	});
+	</script>
 </head>
 <body>
 	<div class="select-zob">
@@ -14,8 +38,8 @@
 		</select>
 	</div>
 	<div class="map">
-		<!-- <img class="map-image" src="carte.png"> -->
-		<img class="map-image" src="Capture.PNG">
+		<img class="map-image" src="carte.png">
+		<!-- <img class="map-image" src="Capture.PNG"> -->
 		<div class="dots">
 			<div class="dot warande"></div>
 			<div class="dot weppes"></div>
@@ -184,10 +208,94 @@
 			<div class="dot santa_llogia"></div>			
 		</div>
 	</div>
+	<div class="questions">
+		<div class="inside">
+			<div class="win"></div>
+			<ul id="suggestions">
+			</ul>
+		</div>
+	</div>
 	<script type="text/javascript">
 		$(".dot").click(function() {
-			alert("ca marche pas encore...")
+			var myclicked = this.className.substring(4);
+			// get random
+
+			// var randomProperty = function (obj) {
+			//     var keys = Object.keys(obj)
+			//     console.log(keys)
+			//     return obj[keys[ keys.length * Math.random() << 0]];
+			// };
+			// console.log(randomProperty(data))
+
+			function getRandomArrayElements(arr, count) {
+				var keys = Object.keys(arr)
+			    var shuffled = keys.slice(0), i = keys.length, min = i - count, temp, index;
+			    while (i-- > min) {
+			        index = Math.floor((i + 1) * Math.random());
+			        temp = shuffled[index];
+			        shuffled[index] = shuffled[i];
+			        shuffled[i] = temp;
+			    }
+			    return shuffled.slice(min);
+			}
+
+			var results = getRandomArrayElements(data, 3);
+			results.unshift(myclicked);
+			// console.log(results)
+			// remove duplicate
+			var unique = results.filter(function(elem, index, self) {
+			    return index == self.indexOf(elem);
+			})
+			var items = [];
+
+			// randomize
+			function shuffle(array) {
+			  var currentIndex = array.length, temporaryValue, randomIndex;
+
+			  // While there remain elements to shuffle...
+			  while (0 !== currentIndex) {
+
+			    // Pick a remaining element...
+			    randomIndex = Math.floor(Math.random() * currentIndex);
+			    currentIndex -= 1;
+
+			    // And swap it with the current element.
+			    temporaryValue = array[currentIndex];
+			    array[currentIndex] = array[randomIndex];
+			    array[randomIndex] = temporaryValue;
+			  }
+
+			  return array;
+			}
+
+			function clean() {
+				$('#suggestions').html('')
+				$(".win").text("")
+			}
+		   
+		   	results = shuffle(results);
+
+			for (i=0; i<(results.length); i ++) {
+		          items.push('<li class="sugg ' + results[i] + '">' + results[i] + '</li>');
+		   }
+
+		   $('#suggestions').append( items.join('') );
+		   $('.questions').show();
+
+		  	$(".sugg").click(function() {
+				var clicked = this.className.substring(5)
+				if (clicked == myclicked) {
+					$(".win").text("gagné !")
+					$(".questions").delay(1000).hide(0)
+					setTimeout(clean, 2000);
+				} else {
+					$(".win").text("Perdu !")
+				}
+			})
 		})
+
+
+
 	</script>
 </body>
 </html>
