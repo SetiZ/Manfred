@@ -11,7 +11,7 @@ body, .map {
 }
 
 .questions {
-    position: absolute;
+    position: fixed;
     display: none;
     top:0;
     bottom: 0;
