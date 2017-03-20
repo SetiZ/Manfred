@@ -30,7 +30,7 @@
 	$.get("liste.txt", function(hop) {
       data = hop.split('\n');
   	});
-  	
+
 	</script>
 </head>
 <body>
@@ -233,8 +233,7 @@
 			// console.log(randomProperty(data))
 
 			function getRandomArrayElements(arr, count) {
-				var keys = Object.keys(arr)
-			    var shuffled = keys.slice(0), i = keys.length, min = i - count, temp, index;
+			    var shuffled = arr.slice(0), i = arr.length, min = i - count, temp, index;
 			    while (i-- > min) {
 			        index = Math.floor((i + 1) * Math.random());
 			        temp = shuffled[index];
@@ -247,6 +246,7 @@
 			var results = getRandomArrayElements(data, 3);
 			results.unshift(myclicked);
 			// console.log(results)
+			
 			// remove duplicate
 			var unique = results.filter(function(elem, index, self) {
 			    return index == self.indexOf(elem);
