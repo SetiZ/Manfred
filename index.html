@@ -28,6 +28,7 @@
 	// });
 
 	$.get("liste.txt", function(hop) {
+	// $.get("https://setiz.github.io/Manfred/liste.txt", function(hop) {
       data = hop.split('\n');
   	});
 
@@ -35,12 +36,10 @@
 </head>
 <body>
 	<div class="select-zob">
-		<label for="zob-size">taille de zob</label>
-		<select class="zob-size">
-			<option value="2">2 choix</option>
-			<option value="4">4 choix</option>
-			<option value="0">que dale</option>
-		</select>
+		<label class="switch">
+		 	<input type="checkbox" name="zob">
+		 	<div class="slider round"></div>
+		</label>
 	</div>
 	<div class="map">
 		<img class="map-image" src="carte.png">
@@ -243,10 +242,15 @@
 			    return shuffled.slice(min);
 			}
 
-			var results = getRandomArrayElements(data, 3);
+			var zob = 3
+			if( $('input[name=zob]').is(':checked') ){
+			    zob = 1
+			}
+
+			var results = getRandomArrayElements(data, zob);
 			results.unshift(myclicked);
 			// console.log(results)
-			
+
 			// remove duplicate
 			var unique = results.filter(function(elem, index, self) {
 			    return index == self.indexOf(elem);
