@@ -26,6 +26,11 @@
 	}, function (error) {
 	   console.log("Error: " + error.code);
 	});
+
+	$.get("liste.txt", function(data) {
+      var items = data.split('\n');
+      console.log(items)
+  	});
 	</script>
 </head>
 <body>
