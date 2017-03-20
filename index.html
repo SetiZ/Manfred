@@ -5,32 +5,32 @@
 	<link rel="stylesheet" type="text/css" href="dots.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+	<!-- <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script> -->
 	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyDHlqJdk6GGNG1Cd0aL8tSAjcFxp4YlsCM",
-	    authDomain: "manfred-4c93e.firebaseapp.com",
-	    databaseURL: "https://manfred-4c93e.firebaseio.com",
-	    storageBucket: "manfred-4c93e.appspot.com",
-	    messagingSenderId: "386216372875"
-	  };
-	  firebase.initializeApp(config);
+	  // // Initialize Firebase
+	  // var config = {
+	  //   apiKey: "AIzaSyDHlqJdk6GGNG1Cd0aL8tSAjcFxp4YlsCM",
+	  //   authDomain: "manfred-4c93e.firebaseapp.com",
+	  //   databaseURL: "https://manfred-4c93e.firebaseio.com",
+	  //   storageBucket: "manfred-4c93e.appspot.com",
+	  //   messagingSenderId: "386216372875"
+	  // };
+	  // firebase.initializeApp(config);
 
-	  var ref = firebase.database().ref();
+	  // var ref = firebase.database().ref();
 	  var data;
 
-	ref.on("value", function(snapshot) {
-	   // console.log(snapshot.val());
-	   data = snapshot.val();
-	}, function (error) {
-	   console.log("Error: " + error.code);
-	});
+	// ref.on("value", function(snapshot) {
+	//    // console.log(snapshot.val());
+	//    data = snapshot.val();
+	// }, function (error) {
+	//    console.log("Error: " + error.code);
+	// });
 
-	$.get("liste.txt", function(data) {
-      var items = data.split('\n');
-      console.log(items)
+	$.get("liste.txt", function(hop) {
+      data = hop.split('\n');
   	});
+  	
 	</script>
 </head>
 <body>
